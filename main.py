@@ -16,7 +16,7 @@ async def on_ready():
     print(f'{client.user} has connected to Discord!')
 
 
-@bot.commands(name='hello', help='Responds with Hi!')
+@bot.command(name='hello', help='Responds with Hi!')
 async def hello(ctx):
     # if message.author == client.author:
     #    return
