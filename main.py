@@ -16,6 +16,15 @@ async def on_ready():
     print(f'{client.user} has connected to Discord!')
 
 
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+    if message.content.startswith('!hello'):
+        await message.channel.send("Hi!")
+
+
 @bot.command(name='hello', help='Responds with Hi!')
 async def hello(ctx):
     # if message.author == client.author:
