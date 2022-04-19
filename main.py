@@ -21,6 +21,6 @@ async def hello(ctx):
     # if message.author == client.author:
     #    return
 
-    await ctx.send('Hi!')
+    await ctx.send("Hi!")
 
 client.run(os.getenv('TOKEN'))
