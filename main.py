@@ -2,37 +2,25 @@ import os
 import discord
 from discord.ext import commands
 from dotenv import load_dotenv
-import youtube_dl
+import music
+
+cogs = [music]
 
 load_dotenv()
 
-# client = discord.Client()
+client = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
-bot = commands.Bot(command_prefix='!')
+for i in range(len(cogs)):
+    cogs[i].setup(client)
 
 
-@bot.event
+@client.event
 async def on_ready():
-    print(f'{bot.user.name} has connected to Dicord!')
-
-# @client.event
-# async def on_ready():
-#     print(f'{client.user} has connected to Discord!')
+    print(f'{client.user.name} has connected to Dicord!')
 
 
-# @client.event
-# async def on_message(message):
-#     if message.author == client.user:
-#         return
-
-#     if message.content.startswith('!hello'):
-#         await message.channel.send("Hi!")
-
-
-@bot.command(name='hello', help='Responds with Hi!')
+@client.command(name='hello', help='Responds with Hi!')
 async def hello(ctx):
     await ctx.send("Hi!")
 
-# client.run(os.getenv('TOKEN'))
-
-bot.run(os.getenv('TOKEN'))
+client.run(os.getenv('TOKEN'))
