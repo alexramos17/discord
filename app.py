@@ -14,7 +14,7 @@ DISCORD_TOKEN = os.getenv("TOKEN")
 
 intents = discord.Intents().all()
 client = discord.Client(intents=intents)
-bot = commands.Bot(command_prefix='!',intents=intents)
+bot = commands.Bot(command_prefix='^',intents=intents)
 
 @bot.command(name='join', help='Tells the bot to join the voice channel')
 async def join(ctx):
