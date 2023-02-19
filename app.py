@@ -95,5 +95,13 @@ async def stop(ctx):
     else:
         await ctx.send("The bot is not playing anything at the moment.")
 
+@client.event
+async def on_voice_state_update(ctx, before, after):
+    voice_state = ctx.message.guild.voice_client
+    if len(voice_state.channel.members) == 1:
+        await voice_state.disconnect()
+    else:
+        return
+
 if __name__ == "__main__" :
     bot.run(DISCORD_TOKEN)
