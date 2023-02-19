@@ -11,7 +11,9 @@
         "setup"
       ],
       "cmds": [
-        "python -m venv /opt/venv && . /opt/venv/bin/activate && pip install -r requirements.txt"
+        "python -m venv /opt/venv && . /opt/venv/bin/activate && pip install -r requirements.txt",
+        "sudo curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -o /usr/local/bin/yt-dlp",
+        "sudo chmod a+rx /usr/local/bin/yt-dlp"
       ],
       "cacheDirectories": [
         "/root/.cache/pip"
